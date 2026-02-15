@@ -1,2 +1,2 @@
 # Hintro_client
-# HITRO_server
+# HINTRO_server

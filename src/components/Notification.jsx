@@ -27,7 +27,7 @@ export const NotificationCenter = ({ socket }) => {
         const token = localStorage.getItem("token");
         if (!token) return;
         try {
-            const res = await fetch('${import.meta.env.VITE_API_URL}/notifications/sent-updates', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/notifications/sent-updates`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();

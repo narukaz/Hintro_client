@@ -1,16 +1,27 @@
-# React + Vite
+# 🚀 React + Vite Project (Minimal Setup)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application powered by Vite, configured for fast development and easy deployment.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ 1. Environment Configuration
 
-## React Compiler
+**Must do this first!** Create a file named `.env` in the root directory and paste the following. Replace the placeholder values with your actual backend URLs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```env
+VITE_API_URL=[https://your-api-link.com](https://your-api-link.com)
+VITE_SOCKET_URL=wss://your-socket-link.com
 
-## Expanding the ESLint configuration
+# --- INSTALLATION & BUILD COMMANDS ---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 1. Install Dependencies
+npm install
+
+# 2. Run Local Development (HMR)
+npm run dev
+
+# 3. Build for Production
+npm run build
+
+# 4. Preview Production Build Locally
+npm run preview

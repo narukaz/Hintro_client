@@ -13,7 +13,7 @@ export const NotificationCenter = ({ socket }) => {
         const token = localStorage.getItem("token");
         if (!token) return;
         try {
-            const res = await fetch('${import.meta.env.VITE_API_URL}notifications/my-invites', {
+            const res = await fetch('${import.meta.env.VITE_API_URL}/notifications/my-invites', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -27,7 +27,7 @@ export const NotificationCenter = ({ socket }) => {
         const token = localStorage.getItem("token");
         if (!token) return;
         try {
-            const res = await fetch('${import.meta.env.VITE_API_URL}notifications/sent-updates', {
+            const res = await fetch('${import.meta.env.VITE_API_URL}/notifications/sent-updates', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -56,7 +56,7 @@ export const NotificationCenter = ({ socket }) => {
         setLoading(notifId);
         const token = localStorage.getItem("token");
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}notifications/${notifId}/${action}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/notifications/${notifId}/${action}`, {
                 method: 'PATCH',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

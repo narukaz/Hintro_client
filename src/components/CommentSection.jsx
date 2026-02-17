@@ -39,7 +39,7 @@ export const CommentSection = ({ task, onClose, socket, boardId }) => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}card/${task._id}/comments`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/card/${task._id}/comments`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (response.ok) {
@@ -57,7 +57,7 @@ export const CommentSection = ({ task, onClose, socket, boardId }) => {
     }, [task._id, token]);
     const handleDeleteComment = async (commentId) => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}card/comment/${commentId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/card/comment/${commentId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -80,7 +80,7 @@ export const CommentSection = ({ task, onClose, socket, boardId }) => {
         if (!commentText.trim()) return;
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}card/${task._id}/comment`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/card/${task._id}/comment`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

@@ -15,7 +15,7 @@ export const CollaboratorSection = ({ boardId, collaborators = [] }) => {
 
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch(`${import.meta.env.VITE_API_URL}board/${boardId}/invite`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/board/${boardId}/invite`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,

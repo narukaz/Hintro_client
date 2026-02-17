@@ -36,7 +36,7 @@ export const BoardView = ({ socket }) => {
     const fetchBoardData = async () => {
         const token = localStorage.getItem("token");
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}board/${boardId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/board/${boardId}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await response.json();
@@ -56,7 +56,7 @@ export const BoardView = ({ socket }) => {
         const token = localStorage.getItem("token");
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}card/search/${boardId}?q=${encodeURIComponent(q)}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/card/search/${boardId}?q=${encodeURIComponent(q)}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const searchResults = await res.json();
@@ -103,7 +103,7 @@ export const BoardView = ({ socket }) => {
         const token = localStorage.getItem("token");
         const limit = 10;
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}list/${listId}/cards?page=${page}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/list/${listId}/cards?page=${page}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await res.json();
@@ -334,7 +334,7 @@ export const BoardView = ({ socket }) => {
             // 2. Persist to Database
             const token = localStorage.getItem("token");
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}card/move/${activeId}`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/card/move/${activeId}`, {
                     method: 'PATCH',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -377,7 +377,7 @@ export const BoardView = ({ socket }) => {
         const nextOrder = currentList?.tasks?.length || 0;
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}card/create`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/card/create`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title: newTitle, listId, boardId, order: nextOrder, socketId: socket.id })
@@ -411,7 +411,7 @@ export const BoardView = ({ socket }) => {
         const nextOrder = lists.length;
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}list/create`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/list/create`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title: newTitle, boardId, order: nextOrder })
@@ -423,7 +423,7 @@ export const BoardView = ({ socket }) => {
     const handleUpdateTask = useCallback(async (taskId, updates) => {
         const token = localStorage.getItem("token");
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}card/update/${taskId}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/card/update/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -481,7 +481,7 @@ export const BoardView = ({ socket }) => {
         })));
 
         try {
-            await fetch(`${import.meta.env.VITE_API_URL}card/delete/${cardId}`, {
+            await fetch(`${import.meta.env.VITE_API_URL}/card/delete/${cardId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -529,7 +529,7 @@ export const BoardView = ({ socket }) => {
 
         // 2. Network Call
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}card/update-status/${taskId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/card/update-status/${taskId}`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${token}`,

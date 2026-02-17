@@ -21,7 +21,7 @@ function SelectedTask({ selectedTask, setSelectedTask, lists, handleUpdateTask, 
         const token = localStorage.getItem("token");
         try {
             // 2. CHANGE task._id to selectedTask._id
-            const res = await fetch(`${import.meta.env.VITE_API_URL}card/${selectedTask._id}/assign`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/card/${selectedTask._id}/assign`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -56,7 +56,7 @@ function SelectedTask({ selectedTask, setSelectedTask, lists, handleUpdateTask, 
         if (!token || !selectedTask?._id) return;
         // Note: Don't set loading to true here if we want a "silent" refresh after auto-save
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}card/${selectedTask._id}/activities`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/card/${selectedTask._id}/activities`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.ok) {

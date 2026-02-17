@@ -30,7 +30,7 @@ export const Checklist = ({ task, setTask }) => {
 
     const updateBackend = async (updatedChecklist) => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}card/update/${task._id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/card/update/${task._id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,

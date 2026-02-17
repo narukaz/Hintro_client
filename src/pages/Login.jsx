@@ -50,8 +50,8 @@ const Login = () => {
         setIsLoading(true);
         setError("");
         const token = localStorage.getItem("token");
-        const endpoint = isLogin ? "/auth/signin" : "/auth/signup";
-        const url = `http://localhost:5001${endpoint}`;
+        const endpoint = isLogin ? "auth/signin" : "auth/signup";
+        const url = `${import.meta.env.VITE_API_URL}/${endpoint}`;
 
         try {
             const response = await fetch(url, {

@@ -22,7 +22,7 @@ export const Dashboard = ({ socket }) => {
     const fetchBoards = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch(`${import.meta.env.VITE_API_URL}board/my-boards`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/board/my-boards`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!response.ok) throw new Error("Unauthorized");
@@ -41,7 +41,7 @@ export const Dashboard = ({ socket }) => {
         setActionLoading(true);
         const token = localStorage.getItem("token");
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}board/`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/board/`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -62,7 +62,7 @@ export const Dashboard = ({ socket }) => {
         setActionLoading(true);
         const token = localStorage.getItem("token");
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}board/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/board/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

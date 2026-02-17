@@ -38,7 +38,7 @@ export const ChecklistManager = ({ task, setTask, setLists, onChecklistUpdate })
     const updateBackend = async (updatedList) => {
         setIsSaving(true);
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}card/update/${task._id}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/card/update/${task._id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
